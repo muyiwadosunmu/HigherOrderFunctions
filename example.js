@@ -5,7 +5,7 @@ const companies = [
     start: 1981,
     end: 2003,
   },
-  { 
+  {
     name: "Company Two",
     category: "Retail",
     start: 1992,
@@ -55,30 +55,35 @@ const canDrink1 = ages.filter((age) => {
 console.log(canDrink1);
 // this can even be made better using ES6
 
-const candDrink2 = ages.filter(age => age >= 21);
+const candDrink2 = ages.filter((age) => age >= 21);
 console.log(candDrink2);
 
 // More Retails
-const retailCompanies = companies.filter(function(company) {
-  if (company.category === 'Retails') {
+const retailCompanies = companies.filter(function (company) {
+  if (company.category === "Retails") {
     return true;
   }
 });
-console.log(retailCompanies)
+console.log(retailCompanies);
 
 //Using arrow functions
-const retailCompanies2 =companies.filter(company => company.category === "Retails");
-console.log(retailCompanies2)
+const retailCompanies2 = companies.filter(
+  (company) => company.category === "Retails"
+);
+console.log(retailCompanies2);
 
 // Let's try and filter out companies that strted in the 1980s
-const eightiesCompanies = companies.filter(company => (company.start >= 1980 && company.start < 1990));
+const eightiesCompanies = companies.filter(
+  (company) => company.start >= 1980 && company.start < 1990
+);
 
-console.log(eightiesCompanies)
-
+console.log(eightiesCompanies);
 
 // get companies that lasted 10 years or more
 
-const lastTenYears = companies.filter(company => (company.end - company.start >= 10));
+const lastTenYears = companies.filter(
+  (company) => company.end - company.start >= 10
+);
 console.log(lastTenYears);
 
 // 2  Map
@@ -86,25 +91,53 @@ console.log(lastTenYears);
 // Create new array of company names
 
 //Ex1
-const companyNames = companies.map(function(company) {
+const companyNames = companies.map(function (company) {
   return company.name;
 });
 console.log(companyNames);
 // Shorter way
 
-const testMap = companies.map(company => `${company.name} [${company.start} - ${company.end}]`);
+const testMap = companies.map(
+  (company) => `${company.name} [${company.start} - ${company.end}]`
+);
 
 console.log(testMap);
 
 //ex 2
-const ageSquare = ages.map(age => Math.sqrt(age));
+const ageSquare = ages.map((age) => Math.sqrt(age));
 console.log(ageSquare);
 
-const agesTimesTwo = ages.map(age => age * 2);
+const agesTimesTwo = ages.map((age) => age * 2);
 console.log(ageSquare);
 
+// To join 2 map functions together
+const ageMap = ages.map((age) => Math.sqrt(age)).map((age) => age * 2);
+
+console.log(ageMap);
+
+// 3 sort
+// Works similar like others but basically takes in 2 values
+const sortedCompanies = companies.sort(function (c1, c2) {
+  if (c1.start > c2.start) {
+    return 1;
+  } else {
+    return -1;
+  }
+});
+console.log(sortedCompanies);
+
+// shorter form of above
+const sortedCompanies2 = companies.sort((a, b) => (a.start > b.start ? 1 : -1));
+
+console.log(sortedCompanies2);
 
 
+// Sorting the ages
+const sortAges = ages.sort((a,b) => a -b); // ascending order
+console.log(sortAges);
 
-// sort
+// const sortAges = ages.sort((a,b) => a -b); // descending order
+// console.log(sortAges);
+
+
 // reduce
