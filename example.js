@@ -41,7 +41,6 @@ companies.forEach(function (company) {
 
 companies.forEach((company) => console.log(company));
 
-
 //2 filter - allows us to filer out things from the array
 
 let candDrink = [];
@@ -136,14 +135,12 @@ const sortedCompanies2 = companies.sort((a, b) => (a.start > b.start ? 1 : -1));
 
 console.log(sortedCompanies2);
 
-
 // Sorting the ages
-const sortAges = ages.sort((a,b) => a -b); // ascending order
+const sortAges = ages.sort((a, b) => a - b); // ascending order
 console.log(sortAges);
 
 // const sortAges = ages.sort((a,b) => a -b); // descending order
 // console.log(sortAges);
-
 
 // reduce - Can be used for quite a lot of things and could get complicated, in this section we'll be reducing the no of content in the age array by adding them together
 
@@ -156,28 +153,39 @@ console.log(sortAges);
 // console.log(ageSum);
 
 // using reduce function
-const ageSum = ages.reduce(function(total, age) {
+const ageSum = ages.reduce(function (total, age) {
   return total + age;
-}, 0)
+}, 0);
 
 console.log(ageSum);
 
-
 // Making it even smaller by using ES6 arrow functions
 
-const ageSum1 = ages.reduce((total,age) => total + age, 0);
+const ageSum1 = ages.reduce((total, age) => total + age, 0);
 
-console.log(ageSum1)
-
+console.log(ageSum1);
 
 // Get total years for all company
-const totalYear = companies.reduce(function(total, years) {
-  return total + (years.end - years.start) 
-},0)
+const totalYear = companies.reduce(function (total, years) {
+  return total + (years.end - years.start);
+}, 0);
 
 console.log(totalYear);
 
 // using arrow function
-const totalYear2 = companies.reduce((total, years) => total + (years.end - years.start) ,0)
+const totalYear2 = companies.reduce(
+  (total, years) => total + (years.end - years.start),
+  0
+);
 
-console.log(totalYear2)
+console.log(totalYear2);
+
+//Combined Method
+
+const combined = ages
+  .map((age) => age * 2)
+  .filter((age) => age >= 40)
+  .sort((a, b) => a - b)
+  .reduce((a, b) => a + b, 0);
+
+console.log(combined);
