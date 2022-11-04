@@ -140,4 +140,6 @@ console.log(sortAges);
 // console.log(sortAges);
 
 
-// reduce
+// reduce - Can be used for quite a lot of things and could get complicated
+
+
