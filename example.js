@@ -37,6 +37,11 @@ companies.forEach(function (company) {
   console.log(company);
 });
 
+// using arrow func/ES6
+
+companies.forEach((company) => console.log(company));
+
+
 //2 filter - allows us to filer out things from the array
 
 let candDrink = [];
@@ -140,6 +145,39 @@ console.log(sortAges);
 // console.log(sortAges);
 
 
-// reduce - Can be used for quite a lot of things and could get complicated
+// reduce - Can be used for quite a lot of things and could get complicated, in this section we'll be reducing the no of content in the age array by adding them together
+
+// illustration 1 using for loop
+
+// let ageSum = 0;
+// for (let i =0; i < ages.length; i++) {
+//   ageSum = ageSum + ages[i];
+// }
+// console.log(ageSum);
+
+// using reduce function
+const ageSum = ages.reduce(function(total, age) {
+  return total + age;
+}, 0)
+
+console.log(ageSum);
 
 
+// Making it even smaller by using ES6 arrow functions
+
+const ageSum1 = ages.reduce((total,age) => total + age, 0);
+
+console.log(ageSum1)
+
+
+// Get total years for all company
+const totalYear = companies.reduce(function(total, years) {
+  return total + (years.end - years.start) 
+},0)
+
+console.log(totalYear);
+
+// using arrow function
+const totalYear2 = companies.reduce((total, years) => total + (years.end - years.start) ,0)
+
+console.log(totalYear2)
